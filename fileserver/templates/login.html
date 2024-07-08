@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="w-screen h-screen flex items-center justify-center">
+        <div class="px-4 py-2 border space-y-1">
+            <input type="text" name="username" id="username" placeholder="username" class="px-4 py-2 border"><br>
+            <input type="password" name="password" id="password" placeholder="password" class="px-4 py-2 border"><br>
+            <button type="button" class="px-4 py-2 bg-blue-600 text-white text-sm w-full active:bg-blue-800"
+                onclick="authenticate()">Login</button>
+
+        </div>
+    </div>
+    <script>
+        function authenticate() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            fetch('/api/login')
+        }
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('token')) {
+                location.href = '/dashboard'
+            }
+        })
+    </script>
+</body>
+
+</html>
